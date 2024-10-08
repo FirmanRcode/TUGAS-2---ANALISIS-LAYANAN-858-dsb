@@ -1,0 +1,111 @@
+#include<iostream>
+#include <string>
+#include <cstdlib> // Untuk system
+
+using namespace std;
+
+int pulsa = 189;
+float sisa = 1.76, sisa2 = 496;
+string masaAktif = "1 Januari 2025", koutaAktif = "25/10/2024";
+void tampilkanMenu();
+void menuKedua();
+void menuKetiga();
+void clearMenu();
+
+void clearMenu() {
+    system("cls"); 
+}
+
+void menuKeempat(){
+    int pilih_4;
+    cout << "Pilih Paket yang anda ingin anda cek koutanya :"<<endl;
+    cout << "1. Bonus Paket Akrab" << endl;
+    cout << "2. Packet Akrab(*)" << endl;
+    cin >> pilih_4;
+
+    if (pilih_4 == 2){
+        clearMenu();
+        cout<<"Sisa Packet Akrab: "<< sisa << " GB di Area4, " << sisa2 << " MB kouta myRewards & Unlimited Nelp&SMKS ke XL/Axis s/d " << koutaAktif;
+    }else{
+        clearMenu();
+        menuKeempat();
+    }
+}
+void menuKetiga() {
+    int pilih_3;
+    cout << "Cek Kouta lebih MUDAH & HEMAT beli paket \ndiskon hingga 75% di myXL! Pilih 1 utk \nmenerima SMS berisi link myXL" << endl;
+    cout << "1. Cek myXL" << endl;
+    cout << "2. Lanjut Disini(*)" << endl;
+    cout << "0. Kembali" << endl;
+    cin >> pilih_3;
+
+    if (pilih_3 == 2) {
+        clearMenu();
+        menuKeempat();
+    } else if (pilih_3 == 0) {
+        clearMenu();
+        menuKedua();
+    }else{
+        clearMenu();
+        menuKetiga();
+    }
+}
+
+void menuKedua() {
+    int pilih_2;
+    cout << "1. Info Kartu XL-ku" << endl;
+    cout << "2. m-Pulsa" << endl;
+    cout << "3. Cek Kouta & Info Paket(*)" << endl;
+    cout << "4. Program XL" << endl;
+    cout << "5. Kontrol Pulsa" << endl;
+    cout << "0. Kembali" << endl;
+    cin >> pilih_2;
+
+    clearMenu();
+    if (pilih_2 == 3) {
+        menuKetiga();
+    } else if (pilih_2 == 0) {
+        tampilkanMenu();
+    } else{
+        clearMenu();
+        menuKedua();
+    }
+}
+
+void tampilkanMenu() {
+    int pilih_1;
+    cout << "Pulsa " << pulsa << " aktif s.d " << masaAktif << endl;
+    cout << "1. Promo Paket 1" << endl;
+    cout << "2. Promo Paket 2" << endl;
+    cout << "3. Promo Paket 3" << endl;
+    cout << "4. XTRA Combo" << endl;
+    cout << "5. Inet" << endl;
+    cout << "6. Nelp, Roam & VAS" << endl;
+    cout << "7. Info(*)" << endl;
+    cout << "Input : ";
+    cin >> pilih_1;
+
+    if (pilih_1 == 7) {
+        clearMenu();
+        menuKedua();
+    } else {
+        clearMenu();
+        tampilkanMenu();
+    }
+}
+
+int main() {
+    string nomor;
+
+    cout << "Dial *808#\n";
+    cout << "Input : ";
+    cin >> nomor;
+
+    if (nomor == "*808#") {
+        tampilkanMenu();  // Memanggil fungsi untuk menampilkan menu
+    } else {
+        cout << "Akses beralih ke *808#" << endl;
+    }
+
+    return 0;
+}
